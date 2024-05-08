@@ -8,7 +8,7 @@ public class Farm {
     Scanner sc = new Scanner(System.in);
 
     public void Fmakin(){
-        System.out.println("Zadejte jméno farmy:");
+        System.out.println("Zadejte jméno farmy: ");
         setNm(sc.next());
     }
 
