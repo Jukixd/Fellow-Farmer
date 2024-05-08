@@ -1,5 +1,18 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Scanner sc = new Scanner(System.in);
+
+
+        Player p1 = new Player();
+        p1.Pmakin();
+        System.out.println(p1);
+
+
+
+
+
+
     }
 }
