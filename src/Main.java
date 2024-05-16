@@ -1,3 +1,4 @@
+import java.lang.reflect.Type;
 import java.util.Scanner;
 
 public class Main {
@@ -8,6 +9,16 @@ public class Main {
         Player p1 = new Player();
         p1.Pmakin();
         System.out.println(p1);
+        Farm fr = new Farm();
+        Shop s = new Shop();
+        s.shopmakin();
+
+        for (int r =0;r<5;r++){
+            fr.flwsite.add(new Flowers(flwType.Corn,50));
+        }
+
+        System.out.println(fr.flwsite);
+        s.timetobuy(p1,fr);
 
 
 

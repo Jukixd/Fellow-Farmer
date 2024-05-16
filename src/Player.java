@@ -31,7 +31,7 @@ public class Player {
 
     public void setLvl() {
         this.lvl += 1;
-        System.out.println("!!!Dosáhl jsi nového Levlu "+this.lvl+"!!!");
+        System.out.println("!!!You reached new level "+this.lvl+"!!!");
 
     }
 
@@ -62,6 +62,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "--- Level: "+lvl+" --- ("+exp+"/"+lvl*50+")\n"+" Jméno: "+nm+"\n"+" Level: "+lvl+"\n"+"Balanc: "+blnc+" Kč";
+        return "--- Level: "+lvl+" --- ("+exp+"/"+lvl*50+")\n"+" Name: "+nm+"\n"+" Level: "+lvl+"\n"+"Balance: "+blnc+" Kč";
     }
 }

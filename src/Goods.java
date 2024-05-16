@@ -1,19 +1,19 @@
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 
-public class Flowers {
-    private flwType type;
+public class Goods {
+    private Godies type;
     private int cost;
 
-    public Flowers(flwType type, int cost) {
+    public Goods(Godies type, int cost) {
         this.type = type;
         this.cost = cost;
     }
 
-    public flwType getType() {
+    public Godies getType() {
         return type;
     }
 
-    public void setType(flwType type) {
+    public void setType(Godies type) {
         this.type = type;
     }
 

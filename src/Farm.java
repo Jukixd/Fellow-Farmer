@@ -3,8 +3,13 @@ import java.util.Scanner;
 
 public class Farm {
     private String nm;
-    ArrayList<Greenhouse> flwsite = new ArrayList<>();
-    ArrayList<Barn> anmlsite = new ArrayList<>();
+    ArrayList<Flowers> flwsite = new ArrayList<>();
+    ArrayList<Seeds> Greenhouse = new ArrayList<>();
+    ArrayList<Animals> anmlsite = new ArrayList<>();
+
+    ArrayList<Seeds> storagsed = new ArrayList<>();
+    ArrayList<Goods> godstoraq = new ArrayList<>();
+
     Scanner sc = new Scanner(System.in);
 
     public void Fmakin(){
