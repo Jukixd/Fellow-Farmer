@@ -9,10 +9,10 @@ public class Shop {
 
 
     public void shopmakin() {
-        seedsh.add(new Seeds("Corn Seeds", 10, 2));
-        seedsh.add(new Seeds("Corn Seeds", 10, 2));
-        seedsh.add(new Seeds("Corn Seeds", 10, 2));
-        seedsh.add(new Seeds("Corn Seeds", 10, 2));
+        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
+        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
+        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
+        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
         goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
         goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
         goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
@@ -20,7 +20,7 @@ public class Shop {
 
     }
 
-    public void buyinsed(Player s, Farm k, Seeds e) {
+    public void buyinsed(Player s, Farm k, Seeds e, Cycle d) {
         if (s.getBlnc() > e.getPrc()) {
             s.setBlnc(s.getBlnc() - e.getPrc());
             k.storagsed.add(e);
@@ -31,9 +31,10 @@ public class Shop {
 
     }
 
-    public void buyinanm(Player s, Farm k, Animals e) {
+    public void buyinanm(Player s, Farm k, Animals e,Cycle d) {
         if (s.getBlnc() > e.getPrc()) {
             s.setBlnc(s.getBlnc() - e.getPrc());
+            e.setBuytim(d.getCounter());
             k.anmlsite.add(e);
             System.out.println("Good choice fella");
         } else {
@@ -44,7 +45,7 @@ public class Shop {
     }
 
 
-    public void timetobuy(Player s, Farm e) {
+    public void timetobuy(Player s, Farm e, Cycle d) {
         System.out.println("You Need some good stranger");
         while (true) {
             System.out.println("1) Buy");
@@ -67,16 +68,16 @@ public class Shop {
                         }
                         String r = sc.next();
                         if (r.equals("1")) {
-                            buyinsed(s, e, seedsh.get(0));
+                            buyinsed(s, e, seedsh.get(0),d);
                             break;
                         } else if (r.equals("2")) {
-                            buyinsed(s, e, seedsh.get(1));
+                            buyinsed(s, e, seedsh.get(1),d);
                             break;
                         } else if (r.equals("3")) {
-                            buyinsed(s, e, seedsh.get(2));
+                            buyinsed(s, e, seedsh.get(2),d);
                             break;
                         } else if (r.equals("4")) {
-                            buyinsed(s, e, seedsh.get(3));
+                            buyinsed(s, e, seedsh.get(3),d);
                             break;
                         } else {
                             System.out.println("Need somethin else???");
@@ -88,16 +89,16 @@ public class Shop {
                         }
                         String r = sc.next();
                         if (r.equals("1")) {
-                            buyinanm(s, e, goodssh.get(0));
+                            buyinanm(s, e, goodssh.get(0),d);
                             break;
                         } else if (r.equals("2")) {
-                            buyinanm(s, e, goodssh.get(1));
+                            buyinanm(s, e, goodssh.get(1),d);
                             break;
                         } else if (r.equals("3")) {
-                            buyinanm(s, e, goodssh.get(2));
+                            buyinanm(s, e, goodssh.get(2),d);
                             break;
                         } else if (r.equals("4")) {
-                            buyinanm(s, e, goodssh.get(3));
+                            buyinanm(s, e, goodssh.get(3),d);
                             break;
                         } else {
                             System.out.println("Need somethin else???");

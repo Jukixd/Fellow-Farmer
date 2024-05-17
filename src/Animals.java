@@ -1,7 +1,7 @@
 public class Animals {
     private AnmTpes type;
     private int prc;
-
+    private int buytim;
     private int pastime;
 
     public Animals(AnmTpes type, int prc, int pastime) {
@@ -26,12 +26,20 @@ public class Animals {
         this.pastime = pastime;
     }
 
-    @Override
-    public String toString() {
-        return "Animals{" +
-                "nm='" + type + '\'' +
-                ", prc=" + prc +
-                ", pastime=" + pastime +
-                '}';
+    public AnmTpes getType() {
+        return type;
     }
+
+    public void setType(AnmTpes type) {
+        this.type = type;
+    }
+
+    public int getBuytim() {
+        return buytim;
+    }
+
+    public void setBuytim(int buytim) {
+        this.buytim = buytim;
+    }
+
 }

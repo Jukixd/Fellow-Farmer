@@ -11,6 +11,7 @@ public class Main {
         System.out.println(p1);
         Farm fr = new Farm();
         Shop s = new Shop();
+        Cycle d = new Cycle();
         s.shopmakin();
 
         for (int r =0;r<5;r++){
@@ -18,7 +19,7 @@ public class Main {
         }
 
         System.out.println(fr.flwsite);
-        s.timetobuy(p1,fr);
+        s.timetobuy(p1,fr,d);
 
 
 

@@ -1,20 +1,22 @@
 public class Seeds {
-    private String nm;
+    private Sedype type;
     private int prc;
     private int grwtim;
 
-    public Seeds(String nm, int prc, int grwtim) {
-        this.nm = nm;
+    private int date;
+
+    public Seeds(Sedype type, int prc, int grwtim) {
+        this.type = type;
         this.prc = prc;
         this.grwtim = grwtim;
     }
 
-    public String getNm() {
-        return nm;
+    public Sedype getType() {
+        return type;
     }
 
-    public void setNm(String nm) {
-        this.nm = nm;
+    public void setType(Sedype type) {
+        this.type = type;
     }
 
     public int getPrc() {
@@ -33,11 +35,18 @@ public class Seeds {
         this.grwtim = grwtim;
     }
 
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
         return "Seeds{" +
-                "nm='" + nm + '\'' +
+                "nm='" + type + '\'' +
                 ", prc=" + prc +
                 ", grwtim=" + grwtim +
                 '}';
