@@ -42,4 +42,8 @@ public class Animals {
         this.buytim = buytim;
     }
 
+    @Override
+    public String toString() {
+        return type.name();
+    }
 }

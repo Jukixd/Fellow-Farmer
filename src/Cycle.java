@@ -15,6 +15,8 @@ public class Cycle {
      }
 
 
+
+
     public void procceedday(Cycle d){
         setCounter(getCounter()+1);
         setDay(counter);
@@ -79,5 +81,11 @@ public class Cycle {
 
     public void setSeason(Season season) {
         this.season = season;
+    }
+
+
+    @Override
+    public String toString() {
+        return season.name()+" Week: "+week+" Day: "+day+" (Counter: "+counter+")";
     }
 }

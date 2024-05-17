@@ -45,10 +45,6 @@ public class Seeds {
 
     @Override
     public String toString() {
-        return "Seeds{" +
-                "nm='" + type + '\'' +
-                ", prc=" + prc +
-                ", grwtim=" + grwtim +
-                '}';
+        return type.name();
     }
 }

@@ -9,20 +9,21 @@ public class Shop {
 
 
     public void shopmakin() {
-        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
-        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
-        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
-        seedsh.add(new Seeds(Sedype.CornSeeds, 10, 2));
-        goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
-        goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
-        goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
-        goodssh.add(new Animals(AnmTpes.Chicken, 200, 4));
+        seedsh.add(new Seeds(Sedype.CornSeeds, 50, 2));
+        seedsh.add(new Seeds(Sedype.CarrotSeeds, 100, 5));
+        seedsh.add(new Seeds(Sedype.SunflowerSeeds, 150, 6));
+        seedsh.add(new Seeds(Sedype.PumkinSeeds, 250, 10));
+        goodssh.add(new Animals(AnmTpes.Chicken, 200, 3));
+        goodssh.add(new Animals(AnmTpes.Cow, 400, 4));
+        goodssh.add(new Animals(AnmTpes.Goat, 600, 6));
+        goodssh.add(new Animals(AnmTpes.Pig, 1000, 7));
 
     }
 
     public void buyinsed(Player s, Farm k, Seeds e, Cycle d) {
         if (s.getBlnc() > e.getPrc()) {
             s.setBlnc(s.getBlnc() - e.getPrc());
+            e.setDate(d.getCounter());
             k.storagsed.add(e);
             System.out.println("Good choice fella");
         } else {
@@ -50,6 +51,7 @@ public class Shop {
         while (true) {
             System.out.println("1) Buy");
             System.out.println("2) Sell");
+            System.out.println("3) Exit");
             System.out.println(s.getBlnc());
             String i = sc.next();
 
