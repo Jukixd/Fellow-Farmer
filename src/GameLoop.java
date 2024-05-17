@@ -10,8 +10,6 @@ public class GameLoop {
     Shop s = new Shop();
     Cycle d = new Cycle();
 
-    Scanner sc =new Scanner(System.in);
-
 
     public void Start(){
         fr.Fmakin();
