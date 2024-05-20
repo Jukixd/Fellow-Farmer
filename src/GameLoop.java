@@ -53,18 +53,14 @@ public class GameLoop {
                     String s = sc.next();
 
 
-
-                }else if (j.equals("5")) {
+                } else if (j.equals("5")) {
                     fr.Storage();
                     String s = sc.next();
-
-
 
 
                 } else if (j.equals("6")) {
                     s.timetobuy(p1, fr, d);
                     String s = sc.next();
-
 
 
                 } else if (j.equals("7")) {
