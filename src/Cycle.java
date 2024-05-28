@@ -19,7 +19,7 @@ public class Cycle {
 
     public void procceedday(Cycle d){
         setCounter(getCounter()+1);
-        setDay(counter);
+        setDay(getDay()+1);
         p.Farmchceck(d);
     }
 
