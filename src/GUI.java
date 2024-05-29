@@ -13,6 +13,8 @@ public class GUI {
     JPanel greenpan = new JPanel();
     JPanel shoppan = new JPanel();
     JPanel sipan = new JPanel();
+    JPanel makin = new JPanel();
+
     JLabel intlabl = new JLabel();
     JLabel downpan = new JLabel();
     JLabel downpan2 = new JLabel();
@@ -20,6 +22,7 @@ public class GUI {
     JLabel nite = new JLabel();
     JLabel downtxt = new JLabel();
     JLabel dwntext2 = new JLabel();
+    JLabel nmawrt = new JLabel("Write your name");
 
     JButton str = new JButton("Start!");
     JButton ext = new JButton("Exit!");
@@ -28,14 +31,16 @@ public class GUI {
     JButton shop = new JButton("Shop");
     JButton slep = new JButton("Sleep");
     JButton procceday = new JButton("Proceed day");
+    JButton create = new JButton("Create");
+
+    JTextField nma = new JTextField();
 
 
 
     public void winmakin(){
         c.Firstday();
         JLabel tim = new JLabel(c.toString());
-        String multxt = "<html>--- Level: "+d.getLvl()+" ---<br>Name: "+ d.getNm()+"<br>Exp: "+d.getExp()+" / "+d.getLvl()*50+"<br>Balance: "+d.getBlnc()+" Kč";
-        JLabel pinfo = new JLabel(multxt);
+        JLabel pinfo = new JLabel();
         downtxt.setText("Where do you want to go next?");
         JFrame frm = new JFrame("Local Farmer");
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,10 +71,23 @@ public class GUI {
         shop.setBounds(470,405,120,50);
         slep.setBounds(470,485,120,50);
         procceday.setBounds(495,445,120,50);
+        nma.setBounds(200,125,100,50);
+        create.setBounds(550,400,120,50);
+        nmawrt.setBounds(200,100,100,25);
 
         str.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frm.setContentPane(makin);
+                frm.revalidate();
+                frm.repaint();
+            }
+        });
+        create.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                d.setNm(nma.getText());
+                pinfo.setText("<html>--- Level: "+d.getLvl()+" ---<br>Name: "+ d.getNm()+"<br>Exp: "+d.getExp()+" / "+d.getLvl()*50+"<br>Balance: "+d.getBlnc()+" Kč");
                 frm.setContentPane(rozpan);
                 frm.revalidate();
                 frm.repaint();
@@ -109,9 +127,9 @@ public class GUI {
         slep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frm.setContentPane(sipan);
-                pinfo.setText(multxt);
+                pinfo.setText("<html>--- Level: "+d.getLvl()+" ---<br>Name: "+ d.getNm()+"<br>Exp: "+d.getExp()+" / "+d.getLvl()*50+"<br>Balance: "+d.getBlnc()+" Kč");
                 dwntext2.setText("Zzzzzzz");
+                frm.setContentPane(sipan);
                 frm.revalidate();
                 frm.repaint();
             }
@@ -150,11 +168,14 @@ public class GUI {
         sipan.add(downpan2);
         sipan.add(nite);
 
-
+        makin.add(create);
+        makin.add(nma);
+        makin.add(nmawrt);
 
         frm.add(strpan);
         strpan.setLayout(null);
         rozpan.setLayout(null);
+        makin.setLayout(null);
         sipan.setLayout(null);
 
         frm.setVisible(true);
