@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class GameLoop {
 
     Scanner sc = new Scanner(System.in);
-    Player p1 = new Player();
+    Player p1 = new Player("Karel",1,0,50);
     Farm fr = new Farm();
     Shop s = new Shop();
     Cycle d = new Cycle();

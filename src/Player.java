@@ -16,6 +16,12 @@ public class Player {
         setBlnc(500);
     }
 
+    public Player(String nm, int lvl, int exp, int blnc) {
+        this.nm = nm;
+        this.lvl = lvl;
+        this.exp = exp;
+        this.blnc = blnc;
+    }
 
     public String getNm() {
         return nm;
