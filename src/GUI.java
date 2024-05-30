@@ -7,6 +7,7 @@ public class GUI {
 
     Cycle c = new Cycle();
     Player d = new Player("Karel",1,0,50);
+    Farm p = new Farm();
     JPanel strpan = new JPanel();
     JPanel rozpan = new JPanel();
     JPanel barnpan = new JPanel();
@@ -32,12 +33,17 @@ public class GUI {
     JButton slep = new JButton("Sleep");
     JButton procceday = new JButton("Proceed day");
     JButton create = new JButton("Create");
+    JButton back1 = new JButton("Back");
 
     JTextField nma = new JTextField();
+    int y;
+    int l;
 
 
 
     public void winmakin(){
+        y = 5;
+        l = 20;
         c.Firstday();
         JLabel tim = new JLabel(c.toString());
         JLabel pinfo = new JLabel();
@@ -74,6 +80,7 @@ public class GUI {
         nma.setBounds(200,125,100,50);
         create.setBounds(550,400,120,50);
         nmawrt.setBounds(200,100,100,25);
+        back1.setBounds(500,300,120,50);
 
         str.addActionListener(new ActionListener() {
             @Override
@@ -103,6 +110,9 @@ public class GUI {
         green.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                for (int i =0;i<y;i++){
+                    greenpan.add(new Label("Pepa")).setBounds(l,20*i,20,20);
+                }
                 frm.setContentPane(greenpan);
                 frm.revalidate();
                 frm.repaint();
@@ -144,6 +154,19 @@ public class GUI {
                 frm.repaint();
             }
         });
+        back1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i =y;i>0;i--) {
+                    greenpan.remove(i);
+                }
+                y = 3;
+                l = 50;
+                frm.setContentPane(rozpan);
+                frm.revalidate();
+                frm.repaint();
+            }
+        });
 
         strpan.setBackground(Color.WHITE);
         rozpan.setBackground(Color.white);
@@ -161,6 +184,7 @@ public class GUI {
         strpan.add(ext);
         strpan.add(intlabl);
 
+        greenpan.add(back1);
 
         sipan.add(dwntext2);
         sipan.add(procceday);
@@ -177,6 +201,7 @@ public class GUI {
         rozpan.setLayout(null);
         makin.setLayout(null);
         sipan.setLayout(null);
+        greenpan.setLayout(null);
 
         frm.setVisible(true);
     }
