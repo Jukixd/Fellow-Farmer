@@ -59,8 +59,7 @@ public class GameLoop {
 
 
                 } else if (j.equals("6")) {
-                    s.timetobuy(p1, fr, d);
-                    String s = sc.next();
+
 
 
                 } else if (j.equals("7")) {

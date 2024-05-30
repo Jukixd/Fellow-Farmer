@@ -25,6 +25,7 @@ public class GUI {
     JLabel downpan2 = new JLabel();
     JLabel downpan3 = new JLabel();
     JLabel downpan4 = new JLabel();
+    JLabel downpan5 = new JLabel();
     JLabel rozes = new JLabel();
     JLabel nite = new JLabel();
     JLabel fence = new JLabel();
@@ -34,6 +35,7 @@ public class GUI {
     JLabel nmawrt = new JLabel("Write your name");
     JLabel dwntext3 = new JLabel("Your animals rest here");
     JLabel dwntext4 = new JLabel("Your plants grow here");
+    JLabel dwntext5 = new JLabel("You Need some goods stranger?");
     JLabel storaqes = new JLabel();
     JLabel storages2 = new JLabel();
 
@@ -58,9 +60,23 @@ public class GUI {
     JButton plant3 = new JButton("plant!");
     JButton plant4 = new JButton("plant!");
 
+    JButton back5 = new JButton("Back");
+    JButton buy = new JButton("Buy");
+    JButton sell = new JButton("Sell");
+    JButton sedbuy = new JButton("Seeds");
+    JButton anibuy = new JButton("Animals");
+    JButton pigbuy = new JButton("Pig");
+    JButton chibuy = new JButton("Chicken");
+    JButton cowbuy = new JButton("Cow");
+    JButton goabuy = new JButton("Goat");
+    JButton cropssel = new JButton("Crops");
+    JButton godies = new JButton("Goodies");
+    JLabel balancecon = new JLabel();
+
     JTextField nma = new JTextField();
     int y;
     int l;
+    int busecon = 0;
 
     public void trv(JFrame d,JPanel a){
         d.setContentPane(a);
@@ -70,25 +86,25 @@ public class GUI {
     public void godshow(){
         for (int i = 0;i<4;i++){
             if (i==0){
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("egg.png");
                 storaq1.add(new JLabel(s)).setBounds(50,70,125,70);
-                storaq1.add(new JLabel("Troubo")).setBounds(180,70,200,100);
+                storaq1.add(new JLabel(5+"x")).setBounds(180,70,200,100);
             }
             else if (i==1){
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("cheese.png");
                 storaq1.add(new JLabel(s)).setBounds(50,170,125,70);
-                storaq1.add(new JLabel("Troubo")).setBounds(180,170,200,100);
+                storaq1.add(new JLabel(2+"x")).setBounds(180,170,200,100);
 
             }
             else if (i==2){
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("milk.png");
                 storaq1.add(new JLabel(s)).setBounds(50,270,125,70);
-                storaq1.add(new JLabel("Troubo")).setBounds(180,270,200,100);
+                storaq1.add(new JLabel(5+"x")).setBounds(180,270,200,100);
             }
             else if (i==3){
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("bacon.png");
                 storaq1.add(new JLabel(s)).setBounds(50,370,125,70);
-                storaq1.add(new JLabel("Troubo")).setBounds(180,370,200,100);
+                storaq1.add(new JLabel(5+"x")).setBounds(180,370,200,100);
             }
         }
         storaq1.add(storaqes);
@@ -135,7 +151,7 @@ public class GUI {
     }
 
     public void winmakin(){
-        y = 4;
+        y = 2;
         l = 5;
         c.Firstday();
         JLabel tim = new JLabel(c.toString());
@@ -145,7 +161,7 @@ public class GUI {
         frm.setResizable(false);
         ImageIcon is = new ImageIcon("ifop.png");
         ImageIcon ik = new ImageIcon("downpan.png");
-        ImageIcon ig = new ImageIcon("rozns.png");
+        ImageIcon ig = new ImageIcon("rozes.png");
         ImageIcon ia = new ImageIcon("nite.png");
         ImageIcon ir = new ImageIcon("barn.png");
         ImageIcon iq = new ImageIcon("storaq.png");
@@ -156,6 +172,7 @@ public class GUI {
         downpan2.setIcon(ik);
         downpan3.setIcon(ik);
         downpan4.setIcon(ik);
+        downpan5.setIcon(ik);
         fence.setIcon(ir);
         field.setIcon(iff);
         nite.setIcon(ia);
@@ -166,15 +183,17 @@ public class GUI {
         downpan2.setBounds(0,370,800,200);
         downpan3.setBounds(0,370,800,200);
         downpan4.setBounds(0,370,800,200);
+        downpan5.setBounds(0,370,800,200);
         rozes.setBounds(0,0,800,400);
         nite.setBounds(0,0,800,400);
         fence.setBounds(0,-15,800,400);
         field.setBounds(0,-5,800,400);
-        tim.setBounds(0,-20,500,50);
+        tim.setBounds(0,-15,500,50);
         downtxt.setBounds(50,450,200,40);
         dwntext2.setBounds(50,450,200,40);
         dwntext3.setBounds(50,450,200,40);
         dwntext4.setBounds(50,450,200,40);
+        dwntext5.setBounds(35,450,300,40);
         pinfo.setBounds(335,50,400,300);
         str.setBounds(350,400,100,50);
         ext.setBounds(350,455,100,50);
@@ -190,10 +209,24 @@ public class GUI {
         back2.setBounds(600,450,120,50);
         back3.setBounds(600,450,120,50);
         back4.setBounds(600,500,120,50);
+        back5.setBounds(600,450,120,50);
         storaq1but.setBounds(450,450,120,50);
         storaq2but.setBounds(450,450,120,50);
         storaqes.setBounds(-10,0,800,600);
         storages2.setBounds(-10,0,800,600);
+        buy.setBounds(450,450,120,50);
+        sell.setBounds(300,450,120,50);
+        sedbuy.setBounds(450,450,120,50);
+        anibuy.setBounds(300,450,120,50);
+        pigbuy.setBounds(450,485,120,50);
+        cowbuy.setBounds(450,405,120,50);
+        chibuy.setBounds(300,405,120,50);
+        goabuy.setBounds(300,485,120,50);
+        balancecon.setBounds(620,390,200,40);
+        cropssel.setBounds(450,490,120,50);
+        godies.setBounds(450,410,120,50);
+
+
 
         str.addActionListener(new ActionListener() {
             @Override
@@ -234,9 +267,23 @@ public class GUI {
         barn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i =0;i<y;i++){
-                    ImageIcon f = new ImageIcon("pig.png");
-                    barnpan.add(new JLabel(f)).setBounds(150*i+90,45,125,70);
+                for (int i =0;i<p.anmlsite.size();i++){
+                    if (p.anmlsite.get(i).getType()==AnmTpes.Pig) {
+                        ImageIcon f = new ImageIcon("pig.png");
+                        if (i > 3) {
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
+                        } else {
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                        }
+                    }
+                    else if (p.anmlsite.get(i).getType()==AnmTpes.Cow) {
+                        ImageIcon f = new ImageIcon("cow.png");
+                        if (i > 3) {
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
+                        } else {
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                        }
+                    }
                 }
                 barnpan.add(storaq1but);
                 barnpan.add(dwntext3);
@@ -244,12 +291,6 @@ public class GUI {
                 barnpan.add(downpan3);
                 barnpan.add(fence);
                 trv(frm,barnpan);
-            }
-        });
-        shop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                trv(frm,shoppan);
             }
         });
         slep.addActionListener(new ActionListener() {
@@ -318,6 +359,126 @@ public class GUI {
                 l=6;
             }
         });
+
+
+        shop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                balancecon.setText("Ballance: "+d.getBlnc());
+                shoppan.add(balancecon);
+                shoppan.add(dwntext5);
+                shoppan.add(buy);
+                shoppan.add(sell);
+                shoppan.add(back5);
+                shoppan.add(downpan5);
+                trv(frm,shoppan);
+            }
+        });
+        back5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dwntext5.setText("You Need some goods stranger?");
+                shoppan.removeAll();
+                busecon =0;
+                trv(frm,rozpan);
+            }
+        });
+        buy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shoppan.remove(buy);
+                shoppan.remove(sell);
+                shoppan.remove(downpan5);
+                shoppan.add(sedbuy);
+                shoppan.add(anibuy);
+                dwntext5.setText("What ya buyin stranger?");
+                shoppan.add(downpan5);
+                frm.revalidate();
+                frm.repaint();
+            }
+        });
+        sell.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shoppan.remove(buy);
+                shoppan.remove(sell);
+                shoppan.remove(downpan5);
+                shoppan.add(cropssel);
+                shoppan.add(godies);
+                shoppan.add(anibuy);
+                dwntext5.setText("What ya sellin stranger?");
+                shoppan.add(downpan5);
+                frm.revalidate();
+                frm.repaint();
+                busecon++;
+            }
+        });
+        anibuy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shoppan.remove(anibuy);
+                shoppan.remove(sedbuy);
+                shoppan.remove(downpan5);
+                shoppan.add(pigbuy);
+                shoppan.add(goabuy);
+                shoppan.add(cowbuy);
+                shoppan.add(chibuy);
+                if (busecon==0){
+                    dwntext5.setText("Which one of these Animals ya buyin?");
+                }
+                else{
+                    dwntext5.setText("Which one of these Animals ya sellin?");
+                }
+                shoppan.add(downpan5);
+                frm.revalidate();
+                frm.repaint();
+
+            }
+        });
+        pigbuy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (busecon==0){
+                    y++;
+                }
+                else {
+                    y--;
+                }
+            }
+        });
+        goabuy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                d.setBlnc(d.getBlnc()+500);
+                balancecon.setText("Ballance: "+d.getBlnc());
+                frm.revalidate();
+                frm.repaint();
+            }
+        });
+        cowbuy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (s.buyanm(d,p,c,1)==false){
+                    JOptionPane.showMessageDialog(frm,"You dont have enough money stranger");
+                }
+                balancecon.setText("Ballance: "+d.getBlnc());
+                frm.revalidate();
+                frm.repaint();
+            }
+        });
+        chibuy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (s.buyanm(d,p,c,4)==false){
+                    JOptionPane.showMessageDialog(frm,"You dont have enough money stranger");
+                }
+                balancecon.setText("Ballance: "+d.getBlnc());
+                frm.revalidate();
+                frm.repaint();
+            }
+        });
+
+
         strpan.setBackground(Color.WHITE);
         rozpan.setBackground(Color.white);
 
@@ -333,6 +494,9 @@ public class GUI {
         strpan.add(str);
         strpan.add(ext);
         strpan.add(intlabl);
+
+        shoppan.add(dwntext5);
+        shoppan.add(downpan5);
 
         sipan.add(dwntext2);
         sipan.add(procceday);
@@ -353,6 +517,7 @@ public class GUI {
         barnpan.setLayout(null);
         storaq1.setLayout(null);
         storaq2.setLayout(null);
+        shoppan.setLayout(null);
 
         frm.setVisible(true);
     }
