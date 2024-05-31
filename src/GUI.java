@@ -10,7 +10,7 @@ import java.util.Calendar;
 public class GUI {
 
     Cycle c = new Cycle();
-    Player d = new Player("Karel", 1, 0, 50000);
+    Player d = new Player("Karel", 1, 0, 150);
     Farm p = new Farm();
     Shop s = new Shop();
     JPanel strpan = new JPanel();
