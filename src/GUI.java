@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class GUI {
 
     Cycle c = new Cycle();
-    Player d = new Player("Karel", 1, 0, 50);
+    Player d = new Player("Karel", 1, 0, 50000);
     Farm p = new Farm();
     Shop s = new Shop();
     JPanel strpan = new JPanel();
@@ -38,6 +38,8 @@ public class GUI {
     JLabel dwntext5 = new JLabel("You Need some goods stranger?");
     JLabel storaqes = new JLabel();
     JLabel storages2 = new JLabel();
+    JLabel shopback = new JLabel();
+    JLabel mail = new JLabel();
 
 
     JButton str = new JButton("Start!");
@@ -64,10 +66,10 @@ public class GUI {
     JButton sell = new JButton("Sell");
     JButton sedbuy = new JButton("Seeds");
     JButton anibuy = new JButton("Animals");
-    JButton pigbuy = new JButton("Pig");
-    JButton chibuy = new JButton("Chicken");
-    JButton cowbuy = new JButton("Cow");
-    JButton goabuy = new JButton("Goat");
+    JButton pigbuy = new JButton("Pig: 1000");
+    JButton chibuy = new JButton("Chicken: 200");
+    JButton cowbuy = new JButton("Cow: 400");
+    JButton goabuy = new JButton("Goat: 600");
     JButton godies = new JButton("Goodies");
     JLabel balancecon = new JLabel();
     JButton eggsel = new JButton("Eggs");
@@ -78,8 +80,10 @@ public class GUI {
     JButton carrotbuy = new JButton();
     JButton sunflobuy = new JButton();
     JButton pumpbuy = new JButton();
+    JButton payup = new JButton("Debt: 100 000");
 
     JTextField nma = new JTextField();
+    JTextField farmnma = new JTextField();
 
     int l;
     int busecon = 0;
@@ -91,48 +95,45 @@ public class GUI {
     }
 
     public void godshow() {
-        int milk=0;
-        int egg=0;
-        int bacon=0;
-        int chese=0;
+        int milk = 0;
+        int egg = 0;
+        int bacon = 0;
+        int chese = 0;
 
-        for (int i = 0;i<p.godstoraq.size();i++){
-            if (p.godstoraq.get(i).getType()==Godies.Eggs){
+        for (int i = 0; i < p.godstoraq.size(); i++) {
+            if (p.godstoraq.get(i).getType() == Godies.Eggs) {
                 egg++;
-            }
-            else if (p.godstoraq.get(i).getType()==Godies.Milk){
+            } else if (p.godstoraq.get(i).getType() == Godies.Milk) {
                 milk++;
-            }
-            else if (p.godstoraq.get(i).getType()==Godies.Cheese){
+            } else if (p.godstoraq.get(i).getType() == Godies.Cheese) {
                 chese++;
-            }
-            else if (p.godstoraq.get(i).getType()==Godies.Pork){
+            } else if (p.godstoraq.get(i).getType() == Godies.Pork) {
                 bacon++;
             }
         }
 
         for (int i = 0; i < 4; i++) {
             if (i == 0) {
-                ImageIcon s = new ImageIcon("egg.png");
+                ImageIcon s = new ImageIcon("resources/images/egg.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 70, 125, 70);
                 storaq1.add(new JLabel("Egg: " + egg + "x")).setBounds(180, 70, 200, 100);
             } else if (i == 1) {
-                ImageIcon s = new ImageIcon("cheese.png");
+                ImageIcon s = new ImageIcon("resources/images/cheese.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 170, 125, 70);
                 storaq1.add(new JLabel("Cheese: " + chese + "x")).setBounds(180, 170, 200, 100);
 
             } else if (i == 2) {
-                ImageIcon s = new ImageIcon("milk.png");
+                ImageIcon s = new ImageIcon("resources/images/milk.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 270, 125, 70);
                 storaq1.add(new JLabel("Milk: " + milk + "x")).setBounds(180, 270, 200, 100);
             } else if (i == 3) {
-                ImageIcon s = new ImageIcon("bacon.png");
+                ImageIcon s = new ImageIcon("resources/images/bacon.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 370, 125, 70);
                 storaq1.add(new JLabel("Bacon: " + bacon + "x")).setBounds(180, 370, 200, 100);
             }
         }
+        storaq1.add(back2);
         storaq1.add(storaqes);
-        storaqes.add(back2);
     }
 
     public void plantshow() {
@@ -169,22 +170,22 @@ public class GUI {
         }
         for (int i = 0; i < 4; i++) {
             if (i == 0) {
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("resources/images/corn.png");
                 storaq2.add(new JLabel(s)).setBounds(50, 70, 125, 70);
                 storaq2.add(new JLabel("Seeds: " + secorn + " Crops: " + corn)).setBounds(180, 70, 200, 100);
                 storaq2.add(plant1).setBounds(590, 80, 120, 50);
             } else if (i == 1) {
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("resources/images/carrot.png");
                 storaq2.add(new JLabel(s)).setBounds(50, 170, 125, 70);
                 storaq2.add(new JLabel("Seeds: " + secarrot + " Crops: " + carrot)).setBounds(180, 170, 200, 100);
                 storaq2.add(plant2).setBounds(590, 180, 120, 50);
             } else if (i == 2) {
-                ImageIcon s = new ImageIcon("sunflow.png");
+                ImageIcon s = new ImageIcon("resources/images/sunflow.png");
                 storaq2.add(new JLabel(s)).setBounds(50, 270, 125, 70);
                 storaq2.add(new JLabel("Seeds: " + sesuflo + " Crops: " + suflo)).setBounds(180, 270, 200, 100);
                 storaq2.add(plant3).setBounds(590, 280, 120, 50);
             } else if (i == 3) {
-                ImageIcon s = new ImageIcon("pig.png");
+                ImageIcon s = new ImageIcon("resources/images/pumper.png");
                 storaq2.add(new JLabel(s)).setBounds(50, 370, 125, 70);
                 storaq2.add(new JLabel("Seeds: " + sepumki + " Crops: " + pumpi)).setBounds(180, 370, 200, 100);
                 storaq2.add(plant4).setBounds(590, 380, 120, 50);
@@ -205,13 +206,15 @@ public class GUI {
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frm.setSize(800, 600);
         frm.setResizable(false);
-        ImageIcon is = new ImageIcon("ifop.png");
-        ImageIcon ik = new ImageIcon("downpan.png");
-        ImageIcon ig = new ImageIcon("rozes.png");
-        ImageIcon ia = new ImageIcon("nite.png");
-        ImageIcon ir = new ImageIcon("barn.png");
-        ImageIcon iq = new ImageIcon("storaq.png");
-        ImageIcon iff = new ImageIcon("field.png");
+        ImageIcon is = new ImageIcon("resources/images/ifop.png");
+        ImageIcon ik = new ImageIcon("resources/images/downpan.png");
+        ImageIcon ig = new ImageIcon("resources/images/rozes.png");
+        ImageIcon ia = new ImageIcon("resources/images/nite.png");
+        ImageIcon ir = new ImageIcon("resources/images/barn.png");
+        ImageIcon iq = new ImageIcon("resources/images/storaq.png");
+        ImageIcon iff = new ImageIcon("resources/images/field.png");
+        ImageIcon im = new ImageIcon("resources/images/merchant.png");
+        ImageIcon imai= new ImageIcon("resources/images/mail.png");
         rozes.setIcon(ig);
         intlabl.setIcon(is);
         downpan.setIcon(ik);
@@ -219,12 +222,14 @@ public class GUI {
         downpan3.setIcon(ik);
         downpan4.setIcon(ik);
         downpan5.setIcon(ik);
+        shopback.setIcon(im);
+        mail.setIcon(imai);
         fence.setIcon(ir);
         field.setIcon(iff);
         nite.setIcon(ia);
         storaqes.setIcon(iq);
         storages2.setIcon(iq);
-        intlabl.setBounds(185, 100, 430, 100);
+        intlabl.setBounds(0, 0, 800, 600);
         downpan.setBounds(0, 370, 800, 200);
         downpan2.setBounds(0, 370, 800, 200);
         downpan3.setBounds(0, 370, 800, 200);
@@ -248,8 +253,6 @@ public class GUI {
         shop.setBounds(470, 405, 120, 50);
         slep.setBounds(470, 485, 120, 50);
         procceday.setBounds(495, 445, 120, 50);
-        nma.setBounds(200, 125, 100, 50);
-        create.setBounds(550, 400, 120, 50);
         nmawrt.setBounds(200, 100, 100, 25);
         back1.setBounds(600, 450, 120, 50);
         back2.setBounds(600, 450, 120, 50);
@@ -277,6 +280,12 @@ public class GUI {
         milksel.setBounds(405, 405, 120, 50);
         chesel.setBounds(300, 485, 120, 50);
         bacosel.setBounds(450, 485, 120, 50);
+        shopback.setBounds(0,0,800,400);
+        mail.setBounds(-5,-5,800,600);
+        nma.setBounds(150, 60, 330, 40);
+        farmnma.setBounds(370,215,215,30);
+        create.setBounds(620, 50, 120, 50);
+        payup.setBounds(550,30,220,50);
 
 
         str.addActionListener(new ActionListener() {
@@ -289,8 +298,20 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 d.setNm(nma.getText());
-                pinfo.setText("<html>--- Level: " + d.getLvl() + " ---<br>Name: " + d.getNm() + "<br>Exp: " + d.getExp() + " / " + d.getLvl() * 50 + "<br>Balance: " + d.getBlnc() + " Kč");
-                trv(frm, rozpan);
+                p.setNm(farmnma.getText());
+                if (nma.getText().length()>0&&nma.getText().length()<9){
+                    if ((farmnma.getText().length()>0&&farmnma.getText().length()<9)) {
+                        pinfo.setText("<html>--- Level: " + p.getNm() + " ---<br>Name: " + d.getNm() + "<br>Season: " + c.getSeason() + "<br>Balance: " + d.getBlnc() + " Kč");
+                        trv(frm, rozpan);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(frm,"Farm can have max 8 chars and min 1 char");
+                    }
+                }
+                else {
+                    JOptionPane.showMessageDialog(frm,"Name can have max 8 chars and min 1 char");
+                }
+
             }
         });
         ext.addActionListener(new ActionListener() {
@@ -305,7 +326,37 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < p.greenhouse.size(); i++) {
                     if (p.greenhouse.get(i).getType() == Sedype.CornSeeds) {
-                        ImageIcon d = new ImageIcon("sunflow.png");
+                        ImageIcon d = new ImageIcon("resources/images/corn.png");
+                        if (i > 11) {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                        } else if (i > 5) {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                        } else {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                        }
+                    }
+                    else if (p.greenhouse.get(i).getType() == Sedype.CarrotSeeds) {
+                        ImageIcon d = new ImageIcon("resources/images/carrot.png");
+                        if (i > 11) {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                        } else if (i > 5) {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                        } else {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                        }
+                    }
+                    else if (p.greenhouse.get(i).getType() == Sedype.SunflowerSeeds) {
+                        ImageIcon d = new ImageIcon("resources/images/sunflow.png");
+                        if (i > 11) {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                        } else if (i > 5) {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                        } else {
+                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                        }
+                    }
+                    else if (p.greenhouse.get(i).getType() == Sedype.PumkinSeeds) {
+                        ImageIcon d = new ImageIcon("resources/images/pumper.png");
                         if (i > 11) {
                             greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
                         } else if (i > 5) {
@@ -330,29 +381,42 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < p.anmlsite.size(); i++) {
                     if (p.anmlsite.get(i).getType() == AnmTpes.Pig) {
-                        ImageIcon f = new ImageIcon("pig.png");
-                        if (i > 3) {
+                        ImageIcon f = new ImageIcon("resources/images/pig.png");
+                        if (i>7){
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                        }
+                        else if (i > 3) {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
                         } else {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
                         }
                     } else if (p.anmlsite.get(i).getType() == AnmTpes.Cow) {
-                        ImageIcon f = new ImageIcon("cow.png");
-                        if (i > 3) {
+
+                        ImageIcon f = new ImageIcon("resources/images/cow.png");
+                        if (i>7){
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                        }
+                        else if (i > 3) {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
                         } else {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
                         }
                     } else if (p.anmlsite.get(i).getType() == AnmTpes.Chicken) {
-                        ImageIcon f = new ImageIcon("cow.png");
-                        if (i > 3) {
+                        ImageIcon f = new ImageIcon("resources/images/chiken.png");
+                        if (i>7){
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                        }
+                        else if (i > 3) {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
                         } else {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
                         }
                     } else if (p.anmlsite.get(i).getType() == AnmTpes.Goat) {
-                        ImageIcon f = new ImageIcon("cow.png");
-                        if (i > 3) {
+                        ImageIcon f = new ImageIcon("resources/images/goat.png");
+                        if (i>7){
+                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                        }
+                         else if (i > 3) {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
                         } else {
                             barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
@@ -370,14 +434,14 @@ public class GUI {
         slep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pinfo.setText("<html>--- Level: " + d.getLvl() + " ---<br>Name: " + d.getNm() + "<br>Exp: " + d.getExp() + " / " + d.getLvl() * 50 + "<br>Balance: " + d.getBlnc() + " Kč");
+                pinfo.setText("<html>--- Farm: " + p.getNm() + " ---<br>Name: " + d.getNm() + "<br>Season: " + c.getSeason() + "<br>Balance: " + d.getBlnc() + " Kč");
                 trv(frm, sipan);
             }
         });
         procceday.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                c.procceedday(c,p);
+                c.procceedday(c, p);
                 tim.setText(c.toString());
                 trv(frm, rozpan);
             }
@@ -439,12 +503,14 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 balancecon.setText("Ballance: " + d.getBlnc());
+                shoppan.add(payup);
                 shoppan.add(balancecon);
                 shoppan.add(dwntext5);
                 shoppan.add(buy);
                 shoppan.add(sell);
                 shoppan.add(back5);
                 shoppan.add(downpan5);
+                shoppan.add(shopback);
                 trv(frm, shoppan);
             }
         });
@@ -463,11 +529,13 @@ public class GUI {
                 shoppan.remove(buy);
                 shoppan.remove(sell);
                 shoppan.remove(downpan5);
+                shoppan.remove(shopback);
                 shoppan.add(sedbuy);
                 sedbuy.setBounds(450, 450, 120, 50);
                 shoppan.add(anibuy);
                 dwntext5.setText("What ya buyin stranger?");
                 shoppan.add(downpan5);
+                shoppan.add(shopback);
                 frm.revalidate();
                 frm.repaint();
             }
@@ -478,6 +546,7 @@ public class GUI {
                 shoppan.remove(buy);
                 shoppan.remove(sell);
                 shoppan.remove(downpan5);
+                shoppan.remove(shopback);
                 shoppan.add(sedbuy);
                 sedbuy.setBounds(450, 490, 120, 50);
                 sedbuy.setText("Crops");
@@ -485,6 +554,7 @@ public class GUI {
                 shoppan.add(anibuy);
                 dwntext5.setText("What ya sellin stranger?");
                 shoppan.add(downpan5);
+                shoppan.add(shopback);
                 frm.revalidate();
                 frm.repaint();
                 busecon++;
@@ -495,7 +565,9 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 shoppan.remove(anibuy);
                 shoppan.remove(sedbuy);
+                shoppan.remove(godies);
                 shoppan.remove(downpan5);
+                shoppan.remove(shopback);
                 shoppan.add(pigbuy);
                 shoppan.add(goabuy);
                 shoppan.add(cowbuy);
@@ -506,6 +578,7 @@ public class GUI {
                     dwntext5.setText("Which one of these Animals ya sellin?");
                 }
                 shoppan.add(downpan5);
+                shoppan.add(shopback);
                 frm.revalidate();
                 frm.repaint();
             }
@@ -517,6 +590,7 @@ public class GUI {
                     shoppan.remove(anibuy);
                     shoppan.remove(sedbuy);
                     shoppan.remove(downpan5);
+                    shoppan.remove(shopback);
                     dwntext5.setText("Which seeds are you buyin ?");
                     shoppan.add(cornbuy);
                     cornbuy.setText("Corn seeds: 50");
@@ -527,23 +601,44 @@ public class GUI {
                     shoppan.add(pumpbuy);
                     pumpbuy.setText("Pumpkin seeds: 250");
                     shoppan.add(downpan5);
+                    shoppan.add(shopback);
                     frm.revalidate();
                     frm.repaint();
                 } else {
-                    shoppan.remove(anibuy);
-                    shoppan.remove(sedbuy);
-                    shoppan.remove(godies);
-                    shoppan.remove(downpan5);
-                    dwntext5.setText("Which crops are you buyin ?");
-                    shoppan.add(cornbuy);
-                    cornbuy.setText("Corns: 100");
-                    shoppan.add(carrotbuy);
-                    carrotbuy.setText("Carrots: 200");
-                    shoppan.add(sunflobuy);
-                    sunflobuy.setText("Sunflwr: 300");
-                    shoppan.add(pumpbuy);
-                    pumpbuy.setText("Pumpkins: 500");
-                    shoppan.add(downpan5);
+                    int selamot = 0;
+                    for (int i = p.flwsite.size(); 0 < i; i--) {
+                        selamot += p.flwsite.get(i - 1).getCost();
+                        p.flwsite.remove(i - 1);
+                    }
+                    if (selamot == 0) {
+                        JOptionPane.showMessageDialog(frm, "You have no Crops");
+
+                    } else {
+                        d.setBlnc(d.getBlnc() + selamot);
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        JOptionPane.showMessageDialog(frm, "Crops successfully sold");
+                        frm.revalidate();
+                        frm.repaint();
+                    }
+
+                }
+            }
+        });
+        godies.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selamot = 0;
+                for (int i = p.godstoraq.size(); 0 < i; i--) {
+                    selamot += p.godstoraq.get(i - 1).getCost();
+                    p.godstoraq.remove(i - 1);
+                }
+                if (selamot == 0) {
+                    JOptionPane.showMessageDialog(frm, "You have no Goodies");
+
+                } else {
+                    d.setBlnc(d.getBlnc() + selamot);
+                    balancecon.setText("Ballance: " + d.getBlnc());
+                    JOptionPane.showMessageDialog(frm, "Goodies successfully sold");
                     frm.revalidate();
                     frm.repaint();
                 }
@@ -552,49 +647,103 @@ public class GUI {
         pigbuy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (busecon == 0) {
-                    if (s.buyanm(d, p, c, 4) == false) {
-                        JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                if (p.anmlsite.size() < 12) {
+                    if (busecon == 0) {
+                        if (s.buyanm(d, p, c, 4) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+
+                    } else {
+                        if (s.selanm(d, p, AnmTpes.Pig) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have any Pigs stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
                     }
-                    balancecon.setText("Ballance: " + d.getBlnc());
-                    frm.revalidate();
-                    frm.repaint();
-
                 } else {
-
+                    JOptionPane.showMessageDialog(frm, "Your ranch is full");
                 }
             }
         });
         goabuy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                d.setBlnc(d.getBlnc() + 500);
-                balancecon.setText("Ballance: " + d.getBlnc());
-                frm.revalidate();
-                frm.repaint();
+                if (p.anmlsite.size() < 12) {
+                    if (busecon == 0) {
+                        if (s.buyanm(d, p, c, 3) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+
+                    } else {
+                        if (s.selanm(d, p, AnmTpes.Goat) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have any Goats stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frm, "Your ranch is full");
+                }
             }
         });
         cowbuy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (s.buyanm(d, p, c, 1) == false) {
-                    JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                if (p.anmlsite.size() < 12) {
+                    if (busecon == 0) {
+                        if (s.buyanm(d, p, c, 1) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+
+                    } else {
+                        if (s.selanm(d, p, AnmTpes.Cow) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have any Cows stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frm, "Your ranch is full");
                 }
-                balancecon.setText("Ballance: " + d.getBlnc());
-                frm.revalidate();
-                frm.repaint();
             }
         });
         chibuy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (s.buyanm(d, p, c, 2) == false) {
-                    JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                if (p.anmlsite.size() < 12) {
+                    if (busecon == 0) {
+                        if (s.buyanm(d, p, c, 2) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have enough money stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+
+                    } else {
+                        if (s.selanm(d, p, AnmTpes.Chicken) == false) {
+                            JOptionPane.showMessageDialog(frm, "You dont have any Chiks stranger");
+                        }
+                        balancecon.setText("Ballance: " + d.getBlnc());
+                        frm.revalidate();
+                        frm.repaint();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frm, "Your ranch is full");
                 }
-                balancecon.setText("Ballance: " + d.getBlnc());
-                frm.revalidate();
-                frm.repaint();
             }
+
         });
         cornbuy.addActionListener(new ActionListener() {
             @Override
@@ -644,7 +793,7 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int zs = 0;
-                if (p.greenhouse.size()<18) {
+                if (p.greenhouse.size() < 18) {
                     for (int i = 0; i < p.storagsed.size(); i++) {
                         if (p.storagsed.get(i).getType() == Sedype.CornSeeds) {
                             p.greenhouse.add(p.storagsed.get(i));
@@ -659,11 +808,97 @@ public class GUI {
                     if (zs == 0) {
                         JOptionPane.showMessageDialog(frm, "You don have any Corn seeds");
                     }
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(frm, "You cant plant more seeds your field is full");
                 }
 
+            }
+        });
+        plant2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int zs = 0;
+                if (p.greenhouse.size() < 18) {
+                    for (int i = 0; i < p.storagsed.size(); i++) {
+                        if (p.storagsed.get(i).getType() == Sedype.CarrotSeeds) {
+                            p.greenhouse.add(p.storagsed.get(i));
+                            p.storagsed.remove(p.storagsed.get(i));
+                            JOptionPane.showMessageDialog(frm, "Plant successfully planted");
+                            zs++;
+                            storaq2.removeAll();
+                            plantshow();
+                            break;
+                        }
+                    }
+                    if (zs == 0) {
+                        JOptionPane.showMessageDialog(frm, "You don have any Carrot seeds");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frm, "You cant plant more seeds your field is full");
+                }
+
+            }
+        });
+        plant3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int zs = 0;
+                if (p.greenhouse.size() < 18) {
+                    for (int i = 0; i < p.storagsed.size(); i++) {
+                        if (p.storagsed.get(i).getType() == Sedype.SunflowerSeeds) {
+                            p.greenhouse.add(p.storagsed.get(i));
+                            p.storagsed.remove(p.storagsed.get(i));
+                            JOptionPane.showMessageDialog(frm, "Plant successfully planted");
+                            zs++;
+                            storaq2.removeAll();
+                            plantshow();
+                            break;
+                        }
+                    }
+                    if (zs == 0) {
+                        JOptionPane.showMessageDialog(frm, "You don have any Sunflower seeds");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frm, "You cant plant more seeds your field is full");
+                }
+
+            }
+        });
+        plant4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int zs = 0;
+                if (p.greenhouse.size() < 18) {
+                    for (int i = 0; i < p.storagsed.size(); i++) {
+                        if (p.storagsed.get(i).getType() == Sedype.PumkinSeeds) {
+                            p.greenhouse.add(p.storagsed.get(i));
+                            p.storagsed.remove(p.storagsed.get(i));
+                            JOptionPane.showMessageDialog(frm, "Plant successfully planted");
+                            zs++;
+                            storaq2.removeAll();
+                            plantshow();
+                            break;
+                        }
+                    }
+                    if (zs == 0) {
+                        JOptionPane.showMessageDialog(frm, "You don have any Pumpkin seeds");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frm, "You cant plant more seeds your field is full");
+                }
+
+            }
+        });
+        payup.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (d.getBlnc()>=100000){
+                    JOptionPane.showMessageDialog(frm,"<html>Thank you for Playing my game<br>(and for paying my debts ;))</html>");
+                    System.exit(0);
+                }
+                else {
+                    JOptionPane.showMessageDialog(frm,"Not Enough money, come back when you have full amount");
+                }
             }
         });
 
@@ -684,6 +919,7 @@ public class GUI {
         strpan.add(ext);
         strpan.add(intlabl);
 
+
         shoppan.add(dwntext5);
         shoppan.add(downpan5);
 
@@ -695,7 +931,8 @@ public class GUI {
 
         makin.add(create);
         makin.add(nma);
-        makin.add(nmawrt);
+        makin.add(farmnma);
+        makin.add(mail);
 
         frm.add(strpan);
         strpan.setLayout(null);

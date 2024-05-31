@@ -103,17 +103,20 @@ public class Farm {
 
                 if (greenhouse.get(i-1).getType()==Sedype.CornSeeds){
                     flwsite.add(new Flowers(flwType.Corn, 100));
+                    greenhouse.remove(i-1);
                 }
                 else if (greenhouse.get(i-1).getType()==Sedype.CarrotSeeds){
                     flwsite.add(new Flowers(flwType.Carrot, 200));
+                    greenhouse.remove(i-1);
                 }
                 else if (greenhouse.get(i-1).getType()==Sedype.SunflowerSeeds){
                     flwsite.add(new Flowers(flwType.Sunflower, 300));
+                    greenhouse.remove(i-1);
                 }
                 else {
                     flwsite.add(new Flowers(flwType.Pumpkin, 1000));
+                    greenhouse.remove(i-1);
                 }
-                greenhouse.remove(i-1);
             }
 
 
