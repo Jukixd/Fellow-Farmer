@@ -1,7 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Calendar;
 
 public class GUI {
 
@@ -19,7 +23,6 @@ public class GUI {
     JPanel storaq1 = new JPanel();
     JPanel storaq2 = new JPanel();
 
-    JLabel intlabl = new JLabel();
     JLabel pinfo = new JLabel();
     JLabel downpan = new JLabel();
     JLabel downpan2 = new JLabel();
@@ -40,6 +43,7 @@ public class GUI {
     JLabel storages2 = new JLabel();
     JLabel shopback = new JLabel();
     JLabel mail = new JLabel();
+    JLabel intlabl = new JLabel();
 
 
     JButton str = new JButton("Start!");
@@ -113,23 +117,55 @@ public class GUI {
         }
 
         for (int i = 0; i < 4; i++) {
-            if (i == 0) {
-                ImageIcon s = new ImageIcon("resources/images/egg.png");
-                storaq1.add(new JLabel(s)).setBounds(50, 70, 125, 70);
-                storaq1.add(new JLabel("Egg: " + egg + "x")).setBounds(180, 70, 200, 100);
-            } else if (i == 1) {
-                ImageIcon s = new ImageIcon("resources/images/cheese.png");
-                storaq1.add(new JLabel(s)).setBounds(50, 170, 125, 70);
-                storaq1.add(new JLabel("Cheese: " + chese + "x")).setBounds(180, 170, 200, 100);
+                if (i == 0) {
+                    try (InputStream inputStream = Main.class.getResourceAsStream("egg.png")) {
+                        if (inputStream != null) {
+                            ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                            storaq1.add(new JLabel(s)).setBounds(50, 70, 125, 70);
+                        } else {
+                            System.err.println("Not there :(");
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    storaq1.add(new JLabel("Egg: " + egg + "x")).setBounds(180, 70, 200, 100);
+                } else if (i == 1) {
+                    try (InputStream inputStream = Main.class.getResourceAsStream("cheese.png")) {
+                        if (inputStream != null) {
+                            ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                            storaq1.add(new JLabel(s)).setBounds(50, 170, 125, 70);
+                        } else {
+                            System.err.println("Not there :(");
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    storaq1.add(new JLabel("Cheese: " + chese + "x")).setBounds(180, 170, 200, 100);
+                } else if (i == 2) {
+                    try (InputStream inputStream = Main.class.getResourceAsStream("milk.png")) {
+                        if (inputStream != null) {
+                            ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                            storaq1.add(new JLabel(s)).setBounds(50, 270, 125, 70);
+                        } else {
+                            System.err.println("Not there :(");
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    storaq1.add(new JLabel("Milk: " + milk + "x")).setBounds(180, 270, 200, 100);
+                } else if (i == 3) {
+                    try (InputStream inputStream = Main.class.getResourceAsStream("bacon.png")) {
+                        if (inputStream != null) {
+                            ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                            storaq1.add(new JLabel(s)).setBounds(50, 370, 125, 70);
+                        } else {
+                            System.err.println("Not there :(");
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    storaq1.add(new JLabel("Bacon: " + bacon + "x")).setBounds(180, 370, 200, 100);
 
-            } else if (i == 2) {
-                ImageIcon s = new ImageIcon("resources/images/milk.png");
-                storaq1.add(new JLabel(s)).setBounds(50, 270, 125, 70);
-                storaq1.add(new JLabel("Milk: " + milk + "x")).setBounds(180, 270, 200, 100);
-            } else if (i == 3) {
-                ImageIcon s = new ImageIcon("resources/images/bacon.png");
-                storaq1.add(new JLabel(s)).setBounds(50, 370, 125, 70);
-                storaq1.add(new JLabel("Bacon: " + bacon + "x")).setBounds(180, 370, 200, 100);
             }
         }
         storaq1.add(back2);
@@ -170,23 +206,55 @@ public class GUI {
         }
         for (int i = 0; i < 4; i++) {
             if (i == 0) {
-                ImageIcon s = new ImageIcon("resources/images/corn.png");
-                storaq2.add(new JLabel(s)).setBounds(50, 70, 125, 70);
+                try (InputStream inputStream = Main.class.getResourceAsStream("corn.png")) {
+                    if (inputStream != null) {
+                        ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                        storaq2.add(new JLabel(s)).setBounds(50, 70, 125, 70);
+                    } else {
+                        System.err.println("Not there :(");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 storaq2.add(new JLabel("Seeds: " + secorn + " Crops: " + corn)).setBounds(180, 70, 200, 100);
                 storaq2.add(plant1).setBounds(590, 80, 120, 50);
             } else if (i == 1) {
-                ImageIcon s = new ImageIcon("resources/images/carrot.png");
-                storaq2.add(new JLabel(s)).setBounds(50, 170, 125, 70);
+                try (InputStream inputStream = Main.class.getResourceAsStream("carrot.png")) {
+                    if (inputStream != null) {
+                        ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                        storaq2.add(new JLabel(s)).setBounds(50, 170, 125, 70);
+                    } else {
+                        System.err.println("Not there :(");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 storaq2.add(new JLabel("Seeds: " + secarrot + " Crops: " + carrot)).setBounds(180, 170, 200, 100);
                 storaq2.add(plant2).setBounds(590, 180, 120, 50);
             } else if (i == 2) {
-                ImageIcon s = new ImageIcon("resources/images/sunflow.png");
-                storaq2.add(new JLabel(s)).setBounds(50, 270, 125, 70);
+                try (InputStream inputStream = Main.class.getResourceAsStream("sunflow.png")) {
+                    if (inputStream != null) {
+                        ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                        storaq2.add(new JLabel(s)).setBounds(50, 270, 125, 70);
+                    } else {
+                        System.err.println("Not there :(");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 storaq2.add(new JLabel("Seeds: " + sesuflo + " Crops: " + suflo)).setBounds(180, 270, 200, 100);
                 storaq2.add(plant3).setBounds(590, 280, 120, 50);
             } else if (i == 3) {
-                ImageIcon s = new ImageIcon("resources/images/pumper.png");
-                storaq2.add(new JLabel(s)).setBounds(50, 370, 125, 70);
+                try (InputStream inputStream = Main.class.getResourceAsStream("pumper.png")) {
+                    if (inputStream != null) {
+                        ImageIcon s = new ImageIcon(ImageIO.read(inputStream));
+                        storaq2.add(new JLabel(s)).setBounds(50, 370, 125, 70);
+                    } else {
+                        System.err.println("Not there :(");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 storaq2.add(new JLabel("Seeds: " + sepumki + " Crops: " + pumpi)).setBounds(180, 370, 200, 100);
                 storaq2.add(plant4).setBounds(590, 380, 120, 50);
             }
@@ -197,7 +265,7 @@ public class GUI {
 
     }
 
-    public void winmakin() {
+    public void winmakin() throws IOException {
 
         l = 5;
         c.Firstday();
@@ -206,29 +274,104 @@ public class GUI {
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frm.setSize(800, 600);
         frm.setResizable(false);
-        ImageIcon is = new ImageIcon("resources/images/ifop.png");
-        ImageIcon ik = new ImageIcon("resources/images/downpan.png");
-        ImageIcon ig = new ImageIcon("resources/images/rozes.png");
-        ImageIcon ia = new ImageIcon("resources/images/nite.png");
-        ImageIcon ir = new ImageIcon("resources/images/barn.png");
-        ImageIcon iq = new ImageIcon("resources/images/storaq.png");
-        ImageIcon iff = new ImageIcon("resources/images/field.png");
-        ImageIcon im = new ImageIcon("resources/images/merchant.png");
-        ImageIcon imai= new ImageIcon("resources/images/mail.png");
-        rozes.setIcon(ig);
-        intlabl.setIcon(is);
-        downpan.setIcon(ik);
-        downpan2.setIcon(ik);
-        downpan3.setIcon(ik);
-        downpan4.setIcon(ik);
-        downpan5.setIcon(ik);
-        shopback.setIcon(im);
-        mail.setIcon(imai);
-        fence.setIcon(ir);
-        field.setIcon(iff);
-        nite.setIcon(ia);
-        storaqes.setIcon(iq);
-        storages2.setIcon(iq);
+
+
+        try (InputStream inputStream = Main.class.getResourceAsStream("ifop.png")) {
+            if (inputStream != null) {
+                ImageIcon ia = new ImageIcon(ImageIO.read(inputStream));
+                intlabl.setIcon(ia);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("downpan.png")) {
+            if (inputStream != null) {
+                ImageIcon ik = new ImageIcon(ImageIO.read(inputStream));
+                downpan.setIcon(ik);
+                downpan2.setIcon(ik);
+                downpan3.setIcon(ik);
+                downpan4.setIcon(ik);
+                downpan5.setIcon(ik);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("rozes.png")) {
+            if (inputStream != null) {
+                ImageIcon ig = new ImageIcon(ImageIO.read(inputStream));
+                rozes.setIcon(ig);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("nite.png")) {
+            if (inputStream != null) {
+                ImageIcon ifd = new ImageIcon(ImageIO.read(inputStream));
+                nite.setIcon(ifd);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("barn.png")) {
+            if (inputStream != null) {
+                ImageIcon ir = new ImageIcon(ImageIO.read(inputStream));
+                fence.setIcon(ir);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("storaq.png")) {
+            if (inputStream != null) {
+                ImageIcon iq = new ImageIcon(ImageIO.read(inputStream));
+                storaqes.setIcon(iq);
+                storages2.setIcon(iq);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("field.png")) {
+            if (inputStream != null) {
+                ImageIcon iff = new ImageIcon(ImageIO.read(inputStream));
+                field.setIcon(iff);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("merchant.png")) {
+            if (inputStream != null) {
+                ImageIcon im = new ImageIcon(ImageIO.read(inputStream));
+                shopback.setIcon(im);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (InputStream inputStream = Main.class.getResourceAsStream("mail.png")) {
+            if (inputStream != null) {
+                ImageIcon imai = new ImageIcon(ImageIO.read(inputStream));
+                mail.setIcon(imai);
+            } else {
+                System.err.println("Not there :(");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         intlabl.setBounds(0, 0, 800, 600);
         downpan.setBounds(0, 370, 800, 200);
         downpan2.setBounds(0, 370, 800, 200);
@@ -280,12 +423,12 @@ public class GUI {
         milksel.setBounds(405, 405, 120, 50);
         chesel.setBounds(300, 485, 120, 50);
         bacosel.setBounds(450, 485, 120, 50);
-        shopback.setBounds(0,0,800,400);
-        mail.setBounds(-5,-5,800,600);
+        shopback.setBounds(0, 0, 800, 400);
+        mail.setBounds(-5, -5, 800, 600);
         nma.setBounds(150, 60, 330, 40);
-        farmnma.setBounds(370,215,215,30);
+        farmnma.setBounds(370, 215, 215, 30);
         create.setBounds(620, 50, 120, 50);
-        payup.setBounds(550,30,220,50);
+        payup.setBounds(550, 30, 220, 50);
 
 
         str.addActionListener(new ActionListener() {
@@ -299,17 +442,15 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 d.setNm(nma.getText());
                 p.setNm(farmnma.getText());
-                if (nma.getText().length()>0&&nma.getText().length()<9){
-                    if ((farmnma.getText().length()>0&&farmnma.getText().length()<9)) {
+                if (nma.getText().length() > 0 && nma.getText().length() < 9) {
+                    if ((farmnma.getText().length() > 0 && farmnma.getText().length() < 9)) {
                         pinfo.setText("<html>--- Level: " + p.getNm() + " ---<br>Name: " + d.getNm() + "<br>Season: " + c.getSeason() + "<br>Balance: " + d.getBlnc() + " Kč");
                         trv(frm, rozpan);
+                    } else {
+                        JOptionPane.showMessageDialog(frm, "Farm can have max 8 chars and min 1 char");
                     }
-                    else {
-                        JOptionPane.showMessageDialog(frm,"Farm can have max 8 chars and min 1 char");
-                    }
-                }
-                else {
-                    JOptionPane.showMessageDialog(frm,"Name can have max 8 chars and min 1 char");
+                } else {
+                    JOptionPane.showMessageDialog(frm, "Name can have max 8 chars and min 1 char");
                 }
 
             }
@@ -326,43 +467,72 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < p.greenhouse.size(); i++) {
                     if (p.greenhouse.get(i).getType() == Sedype.CornSeeds) {
-                        ImageIcon d = new ImageIcon("resources/images/corn.png");
-                        if (i > 11) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
-                        } else if (i > 5) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
-                        } else {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                        try (InputStream inputStream = Main.class.getResourceAsStream("corn.png")) {
+                            if (inputStream != null) {
+                                ImageIcon d = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 11) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                                } else if (i > 5) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                                } else {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
-                    }
-                    else if (p.greenhouse.get(i).getType() == Sedype.CarrotSeeds) {
-                        ImageIcon d = new ImageIcon("resources/images/carrot.png");
-                        if (i > 11) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
-                        } else if (i > 5) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
-                        } else {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                    } else if (p.greenhouse.get(i).getType() == Sedype.CarrotSeeds) {
+                        try (InputStream inputStream = Main.class.getResourceAsStream("carrot.png")) {
+                            if (inputStream != null) {
+                                ImageIcon d = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 11) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                                } else if (i > 5) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                                } else {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
-                    }
-                    else if (p.greenhouse.get(i).getType() == Sedype.SunflowerSeeds) {
-                        ImageIcon d = new ImageIcon("resources/images/sunflow.png");
-                        if (i > 11) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
-                        } else if (i > 5) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
-                        } else {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                    } else if (p.greenhouse.get(i).getType() == Sedype.SunflowerSeeds) {
+                        try (InputStream inputStream = Main.class.getResourceAsStream("sunflow.png")) {
+                            if (inputStream != null) {
+                                ImageIcon d = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 11) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                                } else if (i > 5) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                                } else {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
-                    }
-                    else if (p.greenhouse.get(i).getType() == Sedype.PumkinSeeds) {
-                        ImageIcon d = new ImageIcon("resources/images/pumper.png");
-                        if (i > 11) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
-                        } else if (i > 5) {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
-                        } else {
-                            greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                    } else if (p.greenhouse.get(i).getType() == Sedype.PumkinSeeds) {
+                        try (InputStream inputStream = Main.class.getResourceAsStream("pumper.png")) {
+                            if (inputStream != null) {
+                                ImageIcon d = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 11) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 1200, 235, 75, 80);
+                                } else if (i > 5) {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90 - 600, 135, 75, 80);
+                                } else {
+                                    greenpan.add(new JLabel(d)).setBounds(100 * i + 90, 40, 75, 80);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
                     }
 
@@ -381,45 +551,73 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < p.anmlsite.size(); i++) {
                     if (p.anmlsite.get(i).getType() == AnmTpes.Pig) {
-                        ImageIcon f = new ImageIcon("resources/images/pig.png");
-                        if (i>7){
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
-                        }
-                        else if (i > 3) {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
-                        } else {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                        try (InputStream inputStream = Main.class.getResourceAsStream("pig.png")) {
+                            if (inputStream != null) {
+                                ImageIcon f = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 7) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                                } else if (i > 3) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
+                                } else {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
                     } else if (p.anmlsite.get(i).getType() == AnmTpes.Cow) {
 
-                        ImageIcon f = new ImageIcon("resources/images/cow.png");
-                        if (i>7){
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
-                        }
-                        else if (i > 3) {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
-                        } else {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                        try (InputStream inputStream = Main.class.getResourceAsStream("cow.png")) {
+                            if (inputStream != null) {
+                                ImageIcon f = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 7) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                                } else if (i > 3) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
+                                } else {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
                     } else if (p.anmlsite.get(i).getType() == AnmTpes.Chicken) {
-                        ImageIcon f = new ImageIcon("resources/images/chiken.png");
-                        if (i>7){
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
-                        }
-                        else if (i > 3) {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
-                        } else {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                        try (InputStream inputStream = Main.class.getResourceAsStream("chiken.png")) {
+                            if (inputStream != null) {
+                                ImageIcon f = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 7) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                                } else if (i > 3) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
+                                } else {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
                     } else if (p.anmlsite.get(i).getType() == AnmTpes.Goat) {
-                        ImageIcon f = new ImageIcon("resources/images/goat.png");
-                        if (i>7){
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
-                        }
-                         else if (i > 3) {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
-                        } else {
-                            barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                        try (InputStream inputStream = Main.class.getResourceAsStream("goat.png")) {
+                            if (inputStream != null) {
+                                ImageIcon f = new ImageIcon(ImageIO.read(inputStream));
+                                if (i > 7) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 1200, 205, 125, 70);
+                                } else if (i > 3) {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90 - 600, 125, 125, 70);
+                                } else {
+                                    barnpan.add(new JLabel(f)).setBounds(150 * i + 90, 45, 125, 70);
+                                }
+                            } else {
+                                System.err.println("Not there :(");
+                            }
+                        } catch (IOException c) {
+                            c.printStackTrace();
                         }
                     }
                 }
@@ -892,12 +1090,11 @@ public class GUI {
         payup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (d.getBlnc()>=100000){
-                    JOptionPane.showMessageDialog(frm,"<html>Thank you for Playing my game<br>(and for paying my debts ;))</html>");
+                if (d.getBlnc() >= 100000) {
+                    JOptionPane.showMessageDialog(frm, "<html>Thank you for Playing my game<br>(and for paying my debts ;))</html>");
                     System.exit(0);
-                }
-                else {
-                    JOptionPane.showMessageDialog(frm,"Not Enough money, come back when you have full amount");
+                } else {
+                    JOptionPane.showMessageDialog(frm, "Not Enough money, come back when you have full amount");
                 }
             }
         });

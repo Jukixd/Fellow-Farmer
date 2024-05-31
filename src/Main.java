@@ -1,7 +1,10 @@
+
+import javax.swing.*;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         GUI s = new GUI();
         s.winmakin();
 
