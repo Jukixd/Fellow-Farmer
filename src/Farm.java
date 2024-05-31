@@ -95,32 +95,46 @@ public class Farm {
 
 
     public void Farmchceck(Cycle d) {
-        for (int i = greenhouse.size(); i - 1 >= 0; i++) {
-            if (greenhouse.get(i).getDate() + greenhouse.get(i).getGrwtim() -d.getCounter() == 0) {
-                if (greenhouse.get(i).getType().equals(Sedype.CornSeeds)) {
+        for (int i = greenhouse.size(); i  > 0; i--) {
+
+            greenhouse.get(i-1).setGrwtim(greenhouse.get(i-1).getGrwtim()-1);
+
+            if (greenhouse.get(i-1).getGrwtim()==0){
+
+                if (greenhouse.get(i-1).getType()==Sedype.CornSeeds){
                     flwsite.add(new Flowers(flwType.Corn, 100));
-                } else if (greenhouse.get(i).getType().equals(Sedype.CarrotSeeds)) {
+                }
+                else if (greenhouse.get(i-1).getType()==Sedype.CarrotSeeds){
                     flwsite.add(new Flowers(flwType.Carrot, 200));
-                } else if (greenhouse.get(i).getType().equals(Sedype.SunflowerSeeds)) {
+                }
+                else if (greenhouse.get(i-1).getType()==Sedype.SunflowerSeeds){
                     flwsite.add(new Flowers(flwType.Sunflower, 300));
-                } else if (greenhouse.get(i).getType().equals(Sedype.PumkinSeeds)) {
+                }
+                else {
                     flwsite.add(new Flowers(flwType.Pumpkin, 1000));
                 }
-                greenhouse.remove(i);
+                greenhouse.remove(i-1);
             }
+
+
         }
         for (int i = 0; i <anmlsite.size(); i++) {
-            if (anmlsite.get(i).getBuytim() + anmlsite.get(i).getPastime()-d.getCounter() == 0) {
+            anmlsite.get(i).setPastime(anmlsite.get(i).getPastime()-1);
+            if (anmlsite.get(i).getPastime() == 0) {
                 if (anmlsite.get(i).getType().equals(AnmTpes.Chicken)) {
                     godstoraq.add(new Goods(Godies.Eggs, 20));
+                    anmlsite.get(i).setPastime(3);
                 } else if (anmlsite.get(i).getType().equals(AnmTpes.Cow)) {
                     godstoraq.add(new Goods(Godies.Milk, 20));
+                    anmlsite.get(i).setPastime(4);
                 } else if (anmlsite.get(i).getType().equals(AnmTpes.Goat)) {
                     godstoraq.add(new Goods(Godies.Cheese, 20));
+                    anmlsite.get(i).setPastime(6);
                 } else if (anmlsite.get(i).getType().equals(AnmTpes.Pig)) {
                     godstoraq.add(new Goods(Godies.Pork, 20));
+                    anmlsite.get(i).setPastime(8);
                 }
-                anmlsite.get(i).setBuytim(d.getCounter());
+
 
             }
 

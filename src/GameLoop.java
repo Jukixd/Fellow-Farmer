@@ -78,7 +78,7 @@ public class GameLoop {
 
 
             }
-            d.procceedday(d);
+            d.procceedday(d,fr);
         }
 
 

@@ -4,7 +4,7 @@ public class Cycle {
      private int week = 1;
      private Season season;
 
-     Farm p = new Farm();
+
 
 
      public void Firstday(){
@@ -17,10 +17,10 @@ public class Cycle {
 
 
 
-    public void procceedday(Cycle d){
+    public void procceedday(Cycle d,Farm j){
         setCounter(getCounter()+1);
         setDay(getDay()+1);
-        p.Farmchceck(d);
+        j.Farmchceck(d);
     }
 
     public void nextseason(){

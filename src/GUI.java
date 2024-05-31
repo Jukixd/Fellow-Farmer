@@ -91,24 +91,44 @@ public class GUI {
     }
 
     public void godshow() {
+        int milk=0;
+        int egg=0;
+        int bacon=0;
+        int chese=0;
+
+        for (int i = 0;i<p.godstoraq.size();i++){
+            if (p.godstoraq.get(i).getType()==Godies.Eggs){
+                egg++;
+            }
+            else if (p.godstoraq.get(i).getType()==Godies.Milk){
+                milk++;
+            }
+            else if (p.godstoraq.get(i).getType()==Godies.Cheese){
+                chese++;
+            }
+            else if (p.godstoraq.get(i).getType()==Godies.Pork){
+                bacon++;
+            }
+        }
+
         for (int i = 0; i < 4; i++) {
             if (i == 0) {
                 ImageIcon s = new ImageIcon("egg.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 70, 125, 70);
-                storaq1.add(new JLabel("Egg: " + 5 + "x")).setBounds(180, 70, 200, 100);
+                storaq1.add(new JLabel("Egg: " + egg + "x")).setBounds(180, 70, 200, 100);
             } else if (i == 1) {
                 ImageIcon s = new ImageIcon("cheese.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 170, 125, 70);
-                storaq1.add(new JLabel("Cheese: " + 2 + "x")).setBounds(180, 170, 200, 100);
+                storaq1.add(new JLabel("Cheese: " + chese + "x")).setBounds(180, 170, 200, 100);
 
             } else if (i == 2) {
                 ImageIcon s = new ImageIcon("milk.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 270, 125, 70);
-                storaq1.add(new JLabel("Milk: " + 5 + "x")).setBounds(180, 270, 200, 100);
+                storaq1.add(new JLabel("Milk: " + milk + "x")).setBounds(180, 270, 200, 100);
             } else if (i == 3) {
                 ImageIcon s = new ImageIcon("bacon.png");
                 storaq1.add(new JLabel(s)).setBounds(50, 370, 125, 70);
-                storaq1.add(new JLabel("Bacon: " + 5 + "x")).setBounds(180, 370, 200, 100);
+                storaq1.add(new JLabel("Bacon: " + bacon + "x")).setBounds(180, 370, 200, 100);
             }
         }
         storaq1.add(storaqes);
@@ -357,7 +377,7 @@ public class GUI {
         procceday.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                c.procceedday(c);
+                c.procceedday(c,p);
                 tim.setText(c.toString());
                 trv(frm, rozpan);
             }

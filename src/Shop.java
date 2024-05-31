@@ -24,7 +24,7 @@ public class Shop {
         if (a==1) {
             if (s.getBlnc() >= 150) {
                 s.setBlnc(s.getBlnc() - 150);
-                k.storagsed.add(new Seeds(Sedype.SunflowerSeeds,150,50));
+                k.storagsed.add(new Seeds(Sedype.SunflowerSeeds,150,6));
                 return true;
             } else {
                 return false;
@@ -34,7 +34,7 @@ public class Shop {
         else if (a==2) {
             if (s.getBlnc() >= 50) {
                 s.setBlnc(s.getBlnc() - 50);
-                k.storagsed.add(new Seeds(Sedype.CornSeeds,50,50));
+                k.storagsed.add(new Seeds(Sedype.CornSeeds,50,3));
                 return true;
             } else {
                 return false;
@@ -44,7 +44,7 @@ public class Shop {
         else if (a==3) {
             if (s.getBlnc() >= 100) {
                 s.setBlnc(s.getBlnc() - 100);
-                k.storagsed.add(new Seeds(Sedype.CarrotSeeds,100,50));
+                k.storagsed.add(new Seeds(Sedype.CarrotSeeds,100,5));
                 return true;
             } else {
                 return false;
@@ -54,7 +54,7 @@ public class Shop {
         else if (a==4) {
             if (s.getBlnc() >= 250) {
                 s.setBlnc(s.getBlnc() - 250);
-                k.storagsed.add(new Seeds(Sedype.PumkinSeeds,250,50));
+                k.storagsed.add(new Seeds(Sedype.PumkinSeeds,250,10));
                 return true;
             } else {
                 return false;
@@ -69,7 +69,7 @@ public class Shop {
         if (a==1) {
             if (s.getBlnc() >= 400) {
                 s.setBlnc(s.getBlnc() - 400);
-                k.anmlsite.add(new Animals(AnmTpes.Cow, 400, 40));
+                k.anmlsite.add(new Animals(AnmTpes.Cow, 400, 4));
                 return true;
             } else {
                 return false;
@@ -78,7 +78,7 @@ public class Shop {
         else if (a==2){
             if (s.getBlnc() >= 200) {
                 s.setBlnc(s.getBlnc() - 200);
-                k.anmlsite.add(new Animals(AnmTpes.Chicken, 200, 40));
+                k.anmlsite.add(new Animals(AnmTpes.Chicken, 200, 3));
                 return true;
             } else {
                 return false;
@@ -87,7 +87,7 @@ public class Shop {
         else if (a==3){
             if (s.getBlnc() >= 600) {
                 s.setBlnc(s.getBlnc() - 600);
-                k.anmlsite.add(new Animals(AnmTpes.Goat, 600, 40));
+                k.anmlsite.add(new Animals(AnmTpes.Goat, 600, 6));
                 return true;
             } else {
                 return false;
@@ -96,7 +96,7 @@ public class Shop {
         else if (a==4){
             if (s.getBlnc() >= 1000) {
                 s.setBlnc(s.getBlnc() - 1000);
-                k.anmlsite.add(new Animals(AnmTpes.Pig, 1000, 40));
+                k.anmlsite.add(new Animals(AnmTpes.Pig, 1000, 8));
                 return true;
             } else {
                 return false;
