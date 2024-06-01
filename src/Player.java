@@ -1,25 +1,16 @@
 import java.util.Scanner;
 
+//class for defining a player
 public class Player {
     private String nm;
     private int lvl;
-    private int exp;
     private int blnc;
 
     Scanner sc = new Scanner(System.in);
 
-    public void Pmakin(){
-        System.out.println("Zadejte jméno Farmáře:");
-        setNm(sc.next());
-        lvl = 1;
-        setExp(0);
-        setBlnc(500);
-    }
 
-    public Player(String nm, int lvl, int exp, int blnc) {
+    public Player(String nm, int blnc) {
         this.nm = nm;
-        this.lvl = lvl;
-        this.exp = exp;
         this.blnc = blnc;
     }
 
@@ -41,23 +32,6 @@ public class Player {
 
     }
 
-    public int getExp() {
-        return exp;
-    }
-
-    public void setExp(int exp) {
-        int nwexp = this.exp+exp;
-        if (nwexp>50*lvl){
-            this.exp = nwexp-(50*lvl);
-            setLvl();
-            setExp(0);
-        }
-        else {
-            this.exp = nwexp;
-        }
-
-    }
-
     public int getBlnc() {
         return blnc;
     }
@@ -66,8 +40,5 @@ public class Player {
         this.blnc = blnc;
     }
 
-    @Override
-    public String toString() {
-        return "--- Level: "+lvl+" --- ("+exp+"/"+lvl*50+")\n"+" Name: "+nm+"\n"+" Level: "+lvl+"\n"+"Balance: "+blnc+" Kč";
-    }
+
 }

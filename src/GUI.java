@@ -7,10 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
 
+// class for GUI to work
 public class GUI {
 
     Cycle c = new Cycle();
-    Player d = new Player("Karel", 1, 0, 150);
+    Player d = new Player("Karel", 150);
     Farm p = new Farm();
     Shop s = new Shop();
     JPanel strpan = new JPanel();
@@ -89,15 +90,19 @@ public class GUI {
     JTextField nma = new JTextField();
     JTextField farmnma = new JTextField();
 
-    int l;
+
     int busecon = 0;
 
+
+    // method to make travel easy
     public void trv(JFrame d, JPanel a) {
         d.setContentPane(a);
         d.revalidate();
         d.repaint();
     }
 
+
+    // method for showing the storage for animal goodies
     public void godshow() {
         int milk = 0;
         int egg = 0;
@@ -172,6 +177,7 @@ public class GUI {
         storaq1.add(storaqes);
     }
 
+    //method for showing the grown crops and seeds
     public void plantshow() {
         int sesuflo = 0;
         int sepumki = 0;
@@ -265,9 +271,10 @@ public class GUI {
 
     }
 
+
+    //method for making the window
     public void winmakin() throws IOException {
 
-        l = 5;
         c.Firstday();
         JLabel tim = new JLabel(c.toString());
         JFrame frm = new JFrame("Local Farmer");
@@ -431,6 +438,8 @@ public class GUI {
         payup.setBounds(550, 30, 220, 50);
 
 
+
+        // lot of action listeners for button to do something
         str.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -689,14 +698,6 @@ public class GUI {
                 trv(frm, storaq2);
             }
         });
-        plant1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                l = 6;
-            }
-        });
-
-
         shop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

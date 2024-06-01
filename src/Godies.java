@@ -1,3 +1,4 @@
 public enum Godies {
-    Eggs, Milk, Cheese, Pork
+    //godies types
+        Eggs, Milk, Cheese, Pork
 }

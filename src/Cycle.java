@@ -1,3 +1,4 @@
+// Class for declaration date
 public class Cycle {
     private int counter = 1;
     private int day;
@@ -6,7 +7,7 @@ public class Cycle {
 
 
 
-
+    // method for starting new game to set date right
      public void Firstday(){
              setCounter(1);
              setDay(1);
@@ -16,13 +17,14 @@ public class Cycle {
 
 
 
-
+    // method for Prooceeding to a next day
     public void procceedday(Cycle d,Farm j){
         setCounter(getCounter()+1);
         setDay(getDay()+1);
         j.Farmchceck(d);
     }
 
+    // method for changing season
     public void nextseason(){
          if (season.equals(Season.Spring)){
              setSeason(Season.Summmer);

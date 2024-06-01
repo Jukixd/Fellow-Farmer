@@ -1,5 +1,5 @@
 import java.lang.reflect.Type;
-
+// class for definiton of Crops
 public class Flowers {
     private flwType type;
     private int cost;

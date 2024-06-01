@@ -1,8 +1,12 @@
+
+// Class for animal definition
 public class Animals {
+
     private AnmTpes type;
     private int prc;
     private int buytim;
     private int pastime;
+
 
     public Animals(AnmTpes type, int prc, int pastime) {
         this.type = type;

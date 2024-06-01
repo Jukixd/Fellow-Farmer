@@ -1,25 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//class for definition of a shop
+
 public class Shop {
 
-    Scanner sc = new Scanner(System.in);
-    ArrayList<Seeds> seedsh = new ArrayList<>();
-    ArrayList<Animals> goodssh = new ArrayList<>();
 
-
-    public void shopmakin() {
-        seedsh.add(new Seeds(Sedype.CornSeeds, 50, 2));
-        seedsh.add(new Seeds(Sedype.CarrotSeeds, 100, 5));
-        seedsh.add(new Seeds(Sedype.SunflowerSeeds, 150, 6));
-        seedsh.add(new Seeds(Sedype.PumkinSeeds, 250, 10));
-        goodssh.add(new Animals(AnmTpes.Chicken, 200, 3));
-        goodssh.add(new Animals(AnmTpes.Cow, 400, 4));
-        goodssh.add(new Animals(AnmTpes.Goat, 600, 6));
-        goodssh.add(new Animals(AnmTpes.Pig, 1000, 7));
-
-    }
-
+    //method for Player to buy seeds
     public boolean buysed(Player s, Farm k, int a, Cycle d) {
         if (a == 1) {
             if (s.getBlnc() >= 150) {
@@ -62,6 +49,7 @@ public class Shop {
 
     }
 
+    //class for player to buy an animal
     public boolean buyanm(Player s, Farm k, Cycle d, int a) {
         if (a == 1) {
             if (s.getBlnc() >= 400) {
@@ -99,6 +87,7 @@ public class Shop {
         return false;
     }
 
+    //class for player to sell an animal
     public boolean selanm(Player m, Farm f, AnmTpes a) {
         if (f.anmlsite.size() > 0) {
             for (int i = f.anmlsite.size(); i > 0; i--) {

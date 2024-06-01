@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+//class for definition of product that animals makes
 public class Goods {
     private Godies type;
     private int cost;

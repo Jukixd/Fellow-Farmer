@@ -1,99 +1,30 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Class for a delclation of farm
+
 public class Farm {
     private String nm;
+
+    // arraylist for grown crops
     ArrayList<Flowers> flwsite = new ArrayList<>();
+
+    // arraylist for crops that are growing
     ArrayList<Seeds> greenhouse = new ArrayList<>();
+
+    //arraylist for animals you own
     ArrayList<Animals> anmlsite = new ArrayList<>();
 
+    //arraylist for seeds you own
     ArrayList<Seeds> storagsed = new ArrayList<>();
+    //arraylist for goodies your animals make
     ArrayList<Goods> godstoraq = new ArrayList<>();
 
 
     Scanner sc = new Scanner(System.in);
 
-    public void Fmakin() {
-        System.out.println("Choose name for your farm: ");
-        setNm(sc.next());
-    }
 
-    public void Storage(){
-        for (int i = 0;i < flwsite.size();i++){
-            System.out.println(flwsite.get(i));
-        }
-        for (int i = 0;i < godstoraq.size();i++){
-            System.out.println(godstoraq.get(i));
-        }
-    }
-
-    public void Barn(Cycle d) {
-        if (anmlsite.size() > 0) {
-            System.out.println("I own these Animals:");
-            for (int i = 0; i < anmlsite.size(); i++) {
-                System.out.println(anmlsite.get(i).toString() + " Days to next Godie " + (anmlsite.get(i).getPastime()+anmlsite.get(i).getBuytim()-d.getCounter()));
-            }
-        } else {
-            System.out.println("I dont owe any animals");
-        }
-    }
-
-    public void Greenhouse(Cycle d) {
-        if (greenhouse.size() > 0) {
-            System.out.println("I growing theese Crops");
-            for (int i = 0; i < greenhouse.size(); i++) {
-                System.out.println(greenhouse.get(i).toString() + " Days to harvest " + (greenhouse.get(i).getDate()+greenhouse.get(i).getGrwtim()-d.getCounter()));
-            }
-        } else {
-            System.out.println("I dont grow any crops");
-        }
-    }
-
-    public void seedstorag(Cycle d) {
-        if (storagsed.size() > 0) {
-            System.out.println("I owe theese seeds");
-            for (int i = 0; i < storagsed.size(); i++) {
-                System.out.println(storagsed.get(i).toString());
-            }
-        } else {
-            System.out.println("I dont grow any seeds");
-        }
-    }
-
-    public void Seeding(Cycle d) {
-        System.out.println("Do you want to plant some?");
-        String l = sc.next();
-        if (l.equals("1")) {
-            if (storagsed.size() > 0) {
-                if (greenhouse.size() < 5) {
-                    while (true) {
-                        for (int i = 0; i < storagsed.size(); i++) {
-                            System.out.println(i + 1 + ") " + storagsed.get(i));
-                        }
-                        int u = sc.nextInt();
-                        if (0 < u && u <= storagsed.size()) {
-                            storagsed.get(u).setDate(d.getCounter());
-                            greenhouse.add(storagsed.get(u));
-                            storagsed.remove(u);
-                        } else {
-                            System.out.println("Not an option Starger");
-                        }
-                    }
-                } else {
-                    System.out.println("Not, enough size of Greenhouse");
-                }
-
-            } else {
-                System.out.println("Not, enough seeds");
-            }
-        }
-        else {
-            System.out.println("Alrighty");
-        }
-
-    }
-
-
+    // method for checking if some crops or animals produced something
     public void Farmchceck(Cycle d) {
         for (int i = greenhouse.size(); i  > 0; i--) {
 

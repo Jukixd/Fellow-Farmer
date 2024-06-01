@@ -1,9 +1,12 @@
+//class for  definition of seeds
 public class Seeds {
     private Sedype type;
     private int prc;
     private int grwtim;
 
     private int date;
+
+
 
     public Seeds(Sedype type, int prc, int grwtim) {
         this.type = type;
